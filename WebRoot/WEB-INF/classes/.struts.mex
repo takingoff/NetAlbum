@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="mainPackage" location="233,61" size="730,639">
+    <action name="loginAction" location="72,38" size="150,41">
+      <result name="loginResult" />
+    </action>
+    <action name="fileUploadAction" location="238,170" size="146,41">
+      <result name="fileUploadResult" />
+    </action>
+    <action name="fileLoadAction" location="70,167" size="119,41">
+      <result name="fileLoadResult" />
+    </action>
+    <action name="registryAndModifyUserAction" location="243,101" size="173,41">
+      <result name="registryResult" />
+    </action>
+    <action name="queryPicIdsAction" location="51,249" size="150,41">
+      <result name="queryPicIdsResult" />
+    </action>
+    <action name="addOrModifyAlbumAction" location="72,106" size="150,41">
+      <result name="addOrModifyAlbumResult" />
+    </action>
+    <action name="queryAlbumsAction" location="245,253" size="150,41">
+      <result name="queryAlbumsResult" />
+    </action>
+    <action name="delByIdAction" location="247,41" size="150,41">
+      <result name="delResult" />
+    </action>
+    <action name="*FriendAction" location="244,353" size="155,62">
+      <result name="friends" />
+      <result name="friendOperation" />
+    </action>
+    <action name="*PicAction" location="55,353" size="150,62">
+      <result name="obtainPic" />
+      <result name="result" />
+    </action>
+    <action name="*CommentAction" location="78,471" size="150,62">
+      <result name="queryComment" />
+      <result name="commentOperation" />
+    </action>
+  </package>
+</Struts2Diagram>
+

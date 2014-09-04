@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="NetAlbum"
+  id="myeclipse.1366594342178"
+  context-root="/NetAlbum"
+  j2ee-spec="6.0"
+  archive="NetAlbum.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
