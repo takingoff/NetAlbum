@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<constant name="struts.multipart.maxSize" value="52428800"/>
+	
+	<package name="mainPackage" namespace="/main"
+		extends="json-default">
+	
+	<action name="loginAction"
+		class="com.net.album.main_action.LoginAction">
+		<result name="loginResult" type="json">
+			<param name="excludeProperties">account,password</param>
+			<param name="encoding">UTF-8</param>
+		</result>
+	</action>
+	
+	<action name="fileUploadAction"
+		class="com.net.album.main_action.FileUpLoadAction">
+		<result name="fileUploadResult" type="httpheader">
+
+			<param name="status">200</param>
+			<param name="headers.result">${result}</param>
+
+		</result>
+		<interceptor-ref name="fileUpload">
+                <param name="maximumSize">52428800</param> 
+            </interceptor-ref>
+          <interceptor-ref name="defaultStack"></interceptor-ref>
+	</action>
+	<action name="fileLoadAction"
+		class="com.net.album.main_action.FileLoadAction">
+		<result name="fileLoadResult" type="stream">
+			<param name="contentType">application/octet-stream</param>
+			<param name="inputName">targetStream</param>
+		</result>
+	</action>
+	<action name="registryAndModifyUserAction"
+		class="com.net.album.main_action.RegistryAndModifyUserAction">
+		<result name="registryResult" type="httpheader">
+			<param name="headers.result">${result}</param>
+		</result>
+	</action>
+	<action name="queryPicIdsAction"
+		class="com.net.album.main_action.QueryPicIdsAction">
+		<result name="queryPicIdsResult" type="json">
+			<param name="excludeProperties">aId</param>
+			<param name="encoding">UTF-8</param>
+		</result>
+	</action>
+	<action name="addOrModifyAlbumAction"
+		class="com.net.album.main_action.AddOrModifyAlbumAction">
+		<result name="addOrModifyAlbumResult" type="httpheader">
+			<param name="headers.result">${result}</param>
+		</result>
+	</action>
+	<action name="queryAlbumsAction"
+		class="com.net.album.main_action.QueryAlbumsAction">
+		<result name="queryAlbumsResult" type="json">
+			<param name="encoding">UTF-8</param>
+			<param name="excludeProperties">uId</param>
+		</result>
+	</action>
+	<action name="delByIdAction"
+		class="com.net.album.main_action.DelByIdAction">
+		<result name="delResult" type="httpheader">
+			<param name="headers.delResult">${delResult}</param>
+		</result>
+	</action>
+	
+	<action name="*FriendAction" method="{1}"
+		class="com.net.album.main_action.FriendAction">
+		<result name="friends" type="json">
+
+			<param name="encoding">UTF-8</param>
+
+			<param name="excludeProperties">
+				age1,age2,name,sex,requestCount,id,targetIds,observerId,result,targetId
+			</param>
+		</result>
+		<result name="friendOperation" type="httpheader">
+			<param name="headers.result">${result}</param>
+		</result>
+	</action>
+	<action name="*PicAction" method="{1}"
+		class="com.net.album.main_action.PicAction">
+		<result name="obtainPic" type="json">
+			<param name="parse">false</param>
+			<param name="excludeProperties">
+				id,picName,picDescription,result
+			</param>
+		</result>
+		<result name="result" type="httpheader">
+			<param name="headers.result">${result}</param>
+		</result>
+	</action>
+	<action name="*CommentAction" method="{1}"
+		class="com.net.album.main_action.CommentAction">
+		<result name="queryComment" type="json">
+			<param name="root">action</param>
+
+			<param name="excludeProperties">
+				result,requestCount,comment,model
+			</param>
+		</result>
+		<result name="commentOperation" type="httpheader">
+			<param name="headers.result">${result}</param>
+		</result>
+	</action></package></struts>    
